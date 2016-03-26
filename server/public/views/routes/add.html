@@ -1,0 +1,28 @@
+<div class="form-horizontal" ng-controller="AddController">
+  <form  class="form-group" ng-submit="submit(petObject)">
+
+    <label class="col-sm-3 control-label">Name</label>
+    <p class="col-sm-9"><input ng-model="petObject.name" type="text" class="form-control" /></p>
+
+    <label class="col-sm-3 control-label">Type</label>
+    <p class="col-sm-9"><input ng-model="petObject.type" type="text" class="form-control" /></p>
+
+    <label class="col-sm-3 control-label">Age</label>
+    <p class="col-sm-9"><input ng-model="petObject.age" type="text" class="form-control" /></p>
+
+    <label class="col-sm-3 control-label">Photo URL</label>
+    <p class="col-sm-9"><input ng-model="petObject.picurl" type="url" class="form-control" /></p>
+
+    <input ng-click="savePet(petObject)" type="submit" class="btn btn-default"/>
+  </form>
+
+<!-- for testing before db hookup -->
+  <!-- <div class="pet-display" ng-repeat="item in petArray" >
+    <img ng-src="{{ item.picurl }}" />
+    <h2>{{ item.name }}</h2>
+    <p>Animal: {{ item.type }}</p>
+    <p>Age: {{ item.age }}</p>
+
+  </div> -->
+
+</div>
