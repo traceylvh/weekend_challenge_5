@@ -1,4 +1,7 @@
 myApp.factory("PetService", ["$http", function($http){
+
+    var petData = {};
+
     var greeting = function(){
       console.log("Works");
     };
@@ -6,8 +9,12 @@ myApp.factory("PetService", ["$http", function($http){
     var getData = function(){
        $http.get("/pets").then(function(response){
           console.log(response.data);
+          petData.allPets = response.data;
+          console.log(petData);
+          return petData.allPets;
        });
     };
+
 
     var postData = function(data){
        $http.post("/pets", data).then(function(response){
@@ -18,6 +25,8 @@ myApp.factory("PetService", ["$http", function($http){
     return {
       postData: postData,
       getData: getData,
-      greeting : greeting
+      greeting : greeting,
+      petData : petData
+
     };
 }]);

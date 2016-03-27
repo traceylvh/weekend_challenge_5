@@ -1,5 +1,28 @@
 myApp.controller("AddController", ["$scope", "PetService", function($scope, PetService){
 
+    var petObject = {};
+    var petService = PetService;
+
+    petService.greeting();
+
+    $scope.savePet = function(data) {
+        petService.postData(data);
+        petObject = null;
+    }
+
+}]);
+
+myApp.controller("ShowController", ["$scope", "PetService", function($scope, PetService){
+    var petService = PetService;
+
+    //GET HERE
+    petService.getData();
+    $scope.petArray = petService.petData.allPets;
+}]);
+
+
+//============================
+
 //for testing before db hookup
 // myApp.controller("AddController", ["$scope", function($scope){
 
@@ -12,31 +35,3 @@ myApp.controller("AddController", ["$scope", "PetService", function($scope, PetS
   //     $scope.petObject = {};
   //     console.log("the array:", $scope.petArray);
   // };
-
-    var petObject = {};
-    var petService = PetService;
-
-    petService.greeting();
-
-    $scope.savePet = function(data) {
-        petService.postData(data);
-    }
-
-
-//scott's code for mongo
-    // var petObject = {};
-    // var petService = PetService;
-    //
-    // //POST HERE
-    // $scope.submit = function(data){
-    //   petService.postData(data);
-    // };
-}]);
-
-myApp.controller("ShowController", ["$scope", "PetService", function($scope, PetService){
-    var petService = PetService;
-
-    //GET HERE
-    petService.getData();
-    $scope.petArray = response.data;
-}]);
