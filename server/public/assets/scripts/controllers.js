@@ -3,15 +3,24 @@ myApp.controller("AddController", ["$scope", "PetService", function($scope, PetS
 //for testing before db hookup
 // myApp.controller("AddController", ["$scope", function($scope){
 
-  $scope.petArray = [];
+  // $scope.petArray = [];
+  //
+  //
+  // $scope.savePet = function(value){
+  //     console.log(value);
+  //     $scope.petArray.push(value);
+  //     $scope.petObject = {};
+  //     console.log("the array:", $scope.petArray);
+  // };
 
+    var petObject = {};
+    var petService = PetService;
 
-  $scope.savePet = function(value){
-      console.log(value);
-      $scope.petArray.push(value);
-      $scope.petObject = {};
-      console.log("the array:", $scope.petArray);
-  };
+    petService.greeting();
+
+    $scope.savePet = function(data) {
+        petService.postData(data);
+    }
 
 
 //scott's code for mongo
@@ -29,4 +38,5 @@ myApp.controller("ShowController", ["$scope", "PetService", function($scope, Pet
 
     //GET HERE
     petService.getData();
+    $scope.petArray = response.data;
 }]);

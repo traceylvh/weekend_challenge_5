@@ -2,22 +2,40 @@ var express = require("express");
 var app = express();
 var path = require("path");
 var bodyparser = require("body-parser");
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 
 app.set("port", (process.env.PORT || 5000));
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 
+mongoose.connect('mongodb://localhost/pet_keeper');
+mongoose.model("Pets", new Schema({"name" : String, "type" : String, "age" : Number, "picurl" : String}));
+var Pet = mongoose.model("Pets");
 
-//DB stuff
+app.get("/pets", function(req, res){
+      Pet.find({}, function(err, data){
+      if(err){
+          console.log(err);
+      }
 
-app.get("/pets", function(req,res){
-    res.send("Yupper do");
+      res.send(data);
+    });
 });
 
 app.post("/pets", function(req,res){
     console.log(req.body);
-    res.send("Fo sho");
+
+    var addedPet = new Pet({"name" : req.body.name, "type" : req.body.type, "age" : req.body.age, "picurl" : req.body.picurl});
+    addedPet.save(function(err, data){
+        if(err){
+          console.log(err);
+        }
+
+    res.send(data);
+    });
+
 });
 
 

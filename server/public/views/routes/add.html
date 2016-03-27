@@ -1,4 +1,4 @@
-<div class="form-horizontal" ng-controller="AddController">
+<div class="form-horizontal" >
   <form  class="form-group" ng-submit="submit(petObject)">
 
     <label class="col-sm-3 control-label">Name</label>
@@ -11,7 +11,7 @@
     <p class="col-sm-9"><input ng-model="petObject.age" type="text" class="form-control" /></p>
 
     <label class="col-sm-3 control-label">Photo URL</label>
-    <p class="col-sm-9"><input ng-model="petObject.picurl" type="url" class="form-control" /></p>
+    <p class="col-sm-9"><input ng-model="petObject.picurl" type="text" class="form-control" /></p>
 
     <input ng-click="savePet(petObject)" type="submit" class="btn btn-default"/>
   </form>
