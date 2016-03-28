@@ -10,8 +10,8 @@ myApp.factory("PetService", ["$http", function($http){
        $http.get("/pets").then(function(response){
           console.log(response.data);
           petData.allPets = response.data;
-          console.log(petData);
-          return petData.allPets;
+          console.log(petData.allPets);
+          // return petData.allPets;
        });
     };
 
@@ -25,8 +25,8 @@ myApp.factory("PetService", ["$http", function($http){
     return {
       postData: postData,
       getData: getData,
-      greeting : greeting,
-      petData : petData
+      greeting: greeting,
+      petData: petData
 
     };
 }]);

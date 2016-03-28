@@ -1,5 +1,7 @@
 body {
   background: #24151E url("/assets/images/stock-photo-68579547-set-of-farm-animals.jpg") no-repeat center top;
+  /*background: #DADCD5 url("/assets/images/stock-photo-68579547-set-of-farm-animals.jpg") no-repeat center top;*/
+
 }
 
 h1 {
@@ -15,20 +17,39 @@ h2 {
   font-family: 'Carter One';
 }
 
+p {
+  font-size: 18px;
+}
+
 .main-box {
-  background-color: #DBA052;
+  /*background-color: #DBA052;*/
+
   margin-top: 12%;
-  padding: 0 0 50% 0;
+  padding: 0 0 50px 0;
 }
 
 .inner-content {
-  padding: 0  15px;
+  background-color: #DADCD5;
+  padding: 0 15px 50px 15px;
+  border: 5px solid #24151E;
 }
 
 .navigation {
   /*background-color: #fff;*/
+  font-family: 'Carter One';
+  font-size: 18px;
   margin: 20px 0;
 }
+
+a.underline {
+    text-decoration: underline;
+}
+
+a {
+  color: #632533;
+}
+
+
 
 .btn {
   float: right;

@@ -18,6 +18,7 @@ myApp.controller("ShowController", ["$scope", "PetService", function($scope, Pet
     //GET HERE
     petService.getData();
     $scope.petArray = petService.petData.allPets;
+    console.log(petService.petData.allPets);
 }]);
 
 
