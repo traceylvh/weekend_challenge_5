@@ -14,10 +14,11 @@ myApp.controller("AddController", ["$scope", "PetService", function($scope, PetS
 
 myApp.controller("ShowController", ["$scope", "PetService", function($scope, PetService){
     var petService = PetService;
+    petService.initialCall();
 
     //GET HERE
-    petService.getData();
-    $scope.petArray = petService.petData.allPets;
+    // petService.getData();
+    $scope.petArray = petService.petData;
     console.log(petService.petData.allPets);
 }]);
 

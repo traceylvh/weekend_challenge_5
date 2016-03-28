@@ -22,11 +22,20 @@ myApp.factory("PetService", ["$http", function($http){
        });
     };
 
+    var initialCall = function(){
+      if(petData.allPets === undefined){
+        $http.get("/pets").then(function(response){
+          petData.allPets = response.data;
+        });
+      }
+    };
+
     return {
       postData: postData,
       getData: getData,
       greeting: greeting,
-      petData: petData
+      petData: petData,
+      initialCall: initialCall
 
     };
 }]);
