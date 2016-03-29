@@ -19,23 +19,34 @@ myApp.factory("PetService", ["$http", function($http){
     var postData = function(data){
        $http.post("/pets", data).then(function(response){
           console.log(response.data);
+          getData();
        });
     };
 
-    var initialCall = function(){
-      if(petData.allPets === undefined){
-        $http.get("/pets").then(function(response){
-          petData.allPets = response.data;
-        });
-      }
-    };
+
+    var deleteData = function(data){
+     console.log(data);
+     $http.delete("/pets/" + data).then(function(response){
+        getData();
+    });
+ };
+
+    //the getDate here takes care of the initialCall function
+    // var initialCall = function(){
+    //   if(petData.allPets === undefined){
+    //     $http.get("/pets").then(function(response){
+    //       petData.allPets = response.data;
+    //     });
+    //   }
+    // };
 
     return {
       postData: postData,
       getData: getData,
       greeting: greeting,
       petData: petData,
-      initialCall: initialCall
+      deleteData: deleteData
+      // initialCall: initialCall
 
     };
 }]);

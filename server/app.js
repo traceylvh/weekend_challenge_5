@@ -5,7 +5,7 @@ var bodyparser = require("body-parser");
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-app.set("port", (process.env.PORT || 5000));
+app.set("port", (process.env.PORT || 3000));
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
@@ -36,6 +36,19 @@ app.post("/pets", function(req,res){
     res.send(data);
     });
 
+});
+
+
+
+app.delete("/pets/:id", function (req, res) {
+    console.log(req.params.id);
+    Pet.find({ _id: req.params.id }).remove( function(err, data) {
+        if(err){
+          console.log(err);
+        }
+
+        res.send(data);
+    });
 });
 
 

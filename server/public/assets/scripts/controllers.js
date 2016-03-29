@@ -7,19 +7,31 @@ myApp.controller("AddController", ["$scope", "PetService", function($scope, PetS
 
     $scope.savePet = function(data) {
         petService.postData(data);
+        //clear out the form - doesn't work!!
         petObject = null;
+        // $scope.petForm.$setPristine()
+        $scope.$setPristine(true);
+
     }
+
 
 }]);
 
 myApp.controller("ShowController", ["$scope", "PetService", function($scope, PetService){
     var petService = PetService;
-    petService.initialCall();
+    // petService.initialCall();
+    //the getDate here takes care of the initialCall function
 
-    //GET HERE
-    // petService.getData();
+    petService.getData();
     $scope.petArray = petService.petData;
-    console.log(petService.petData.allPets);
+    // console.log(petService.petData.allPets);
+
+    // $scope.showId = function(object){
+    //     console.log(object._id);
+    //     };
+
+    $scope.deleteData = petService.deleteData;
+
 }]);
 
 
