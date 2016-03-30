@@ -1,5 +1,5 @@
 <div class="pet-display" ng-repeat="item in petArray.allPets | orderBy: 'name' " >
-  <img ng-src="{{ item.picurl }}" />
+  <img ng-src="{{ item.picurl }}" width = "150" />
   <h2>{{ item.name }}</h2>
   <p>Animal: {{ item.type }} <br />
     {{ item.age }} years old</p>

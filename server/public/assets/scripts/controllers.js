@@ -8,9 +8,9 @@ myApp.controller("AddController", ["$scope", "PetService", function($scope, PetS
     $scope.savePet = function(data) {
         petService.postData(data);
         //clear out the form - doesn't work!!
-        petObject = null;
+        $scope.petObject = {};
         // $scope.petForm.$setPristine()
-        $scope.$setPristine(true);
+        // $scope.$setPristine(true);
 
     }
 
